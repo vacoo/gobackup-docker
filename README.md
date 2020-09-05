@@ -3,6 +3,7 @@
 https://github.com/huacnlee/gobackup
 
 ### Пример конфига `docker-compose.yml`
+Каждые 10 минут
 ```
 gobackup:
   build:
@@ -12,7 +13,7 @@ gobackup:
     - ./gobackup.yml:/etc/gobackup/gobackup.yml 
     - ./.data/backups:/backups
   environment:
-    SCHEDULE: "0 3 \* \* \*"
+    SCHEDULE: "0 */10 * * * *"
 ```
 
 ### Конфиг `gobackup.yml` 
@@ -38,3 +39,6 @@ models:
         username: project
         password: 123
   ```
+
+### Просмотр заданий
+Выполнить внутри контейнера - `curl -v localhost:18080`
