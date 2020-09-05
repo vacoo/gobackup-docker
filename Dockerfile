@@ -2,7 +2,7 @@ FROM alpine:3.12.0
 
 WORKDIR /etc/gobackup
 
-COPY run.sh run.sh
+COPY . .
 
 RUN apk --no-cache add curl && apk --no-cache add bash
 RUN curl -sSL https://git.io/gobackup | bash
