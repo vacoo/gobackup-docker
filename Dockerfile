@@ -4,7 +4,7 @@ WORKDIR /etc/gobackup
 
 COPY . .
 
-RUN apk --no-cache add curl && apk --no-cache add bash
+RUN apk --no-cache add curl && apk --no-cache add bash && apk add lftp
 RUN curl -sSL https://git.io/gobackup | bash
 RUN apk add postgresql-client && apk add mysql-client
 
