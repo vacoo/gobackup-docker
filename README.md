@@ -49,3 +49,6 @@ models:
 
 ### Восстановление базы данных
 `./restore.sh db.tar.gz test_db`
+
+### Бэкап базы данных
+`gobackup perform`
