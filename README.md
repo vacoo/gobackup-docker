@@ -1,8 +1,8 @@
-### Docker образ утилиты gobackup
+# Docker образ утилиты gobackup
 
 https://github.com/huacnlee/gobackup
 
-# Пример конфига `docker-compose.yml`
+### Пример конфига `docker-compose.yml`
 ```
 gobackup:
   build:
@@ -15,7 +15,7 @@ gobackup:
     SCHEDULE: "0 3 \* \* \*"
 ```
 
-# Конфиг `gobackup.yml` 
+### Конфиг `gobackup.yml` 
 Подробно: https://gobackup.github.io/
 ```
 models:
