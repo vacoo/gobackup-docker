@@ -10,14 +10,18 @@ gobackup:
     context: ./backup
     dockerfile: Dockerfile
   volumes: 
-    - ./gobackup.yml:/etc/gobackup/gobackup.yml 
+    - ./gobackup.yml:/etc/gobackup/gobackup.template.yml 
     - ./.data/backups:/backups
   environment:
+    FTP_HOST: localhost
     SCHEDULE: "0 */10 * * * *"
 ```
 
 ### Конфиг `gobackup.yml` 
 Подробно: https://gobackup.github.io/
+
+При запуске переменные ${VAR} заменяются на перменные окружения
+
 ```
 models:
   vodopad:
@@ -25,19 +29,19 @@ models:
       type: tgz
     store_with:
       type: ftp
-      host: localhost
-      port: 21
-      path: ./backups
-      username: project
-      password: pass
+      host: ${FTP_HOST}
+      port: ${FTP_PORT}
+      path: ${FTP_PATH}
+      username: ${FTP_USERNAME}
+      password: ${FTP_PASSWORD}
     databases:
       main:
-        database: db
+        database: ${POSTGRES_DB}
         type: postgresql
-        host: localhost
+        host: postgresql
         port: 5432
-        username: project
-        password: 123
+        username: ${POSTGRES_USER}
+        password: ${POSTGRES_PASSWORD}
   ```
 
 ### Просмотр заданий
