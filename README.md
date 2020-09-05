@@ -38,3 +38,6 @@ models:
         username: project
         password: 123
   ```
+
+### Просмотр заданий
+Выполнить внутри контейнера - `curl -v localhost:18080`
